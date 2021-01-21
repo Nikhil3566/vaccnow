@@ -47,7 +47,7 @@ public static void sendEmail(Vaccine vaccineRequest) {
       message.setSubject("Congratulations, Your Vaccination is scheduled!");
 
       // Now set the actual message
-      message.setText(String.format("Dear User, Thanks for applying for vaccination at Branch : %s , Vaccine name : %s , at time : %s ",vaccineRequest.getBranchName(),vaccineRequest.getVaccineName(),vaccineRequest.getRequestedTime()));
+      message.setText(String.format("Dear User, Thanks for applying for vaccination at Branch : %s , Vaccine name : %s , at time : %s ",vaccineRequest.getBranchName(),vaccineRequest.getVaccineName(),vaccineRequest.getScheduledTime()));
 
       // Send message
       Transport.send(message);
