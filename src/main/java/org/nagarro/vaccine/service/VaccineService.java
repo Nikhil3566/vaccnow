@@ -9,6 +9,7 @@ import org.nagarro.vaccine.enums.VaccineAvailability;
 import org.nagarro.vaccine.model.Branch;
 import org.nagarro.vaccine.model.Vaccine;
 import org.nagarro.vaccine.respository.BranchRespository;
+import org.nagarro.vaccine.util.SendEmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +48,7 @@ public class VaccineService {
 				&& requestedBranch.getAvailableTimeSlots().contains(vaccinationRequest.getScheduledTime())) {
 			requestedBranch.getScheduledVaccines().add(vaccinationRequest);
 
-			// SendEmailUtil.sendEmail(vaccinationRequest);
+			SendEmailUtil.sendEmail(vaccinationRequest);
 
 			requestedBranch.getAvailableVaccines().remove(vaccinationRequest.getVaccineName());
 			requestedBranch.getAvailableTimeSlots().remove(vaccinationRequest.getScheduledTime());

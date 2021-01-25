@@ -10,13 +10,13 @@ public class Vaccine {
 	private String requesterEmailId;
 	private String paymentMethod;
 
-	public Vaccine(String vaccineName, String branchName, LocalDateTime scheduledDateTime, String emailId,
+	public Vaccine(String vaccineName, String branchName, LocalDateTime scheduledDateTime, String requesterEmailId,
 			String paymentMethod) {
 		super();
 		this.vaccineName = vaccineName;
 		this.branchName = branchName;
 		this.scheduledDateTime = scheduledDateTime;
-		this.requesterEmailId = emailId;
+		this.requesterEmailId = requesterEmailId;
 		this.paymentMethod = paymentMethod;
 	}
 
@@ -44,12 +44,12 @@ public class Vaccine {
 		this.scheduledDateTime = requestedTime;
 	}
 
-	public String getEmailId() {
+	public String getRequesterEmailId() {
 		return requesterEmailId;
 	}
 
-	public void setEmailId(String emailId) {
-		this.requesterEmailId = emailId;
+	public void setRequesterEmailId(String requesterEmailId) {
+		this.requesterEmailId = requesterEmailId;
 	}
 
 	public String getPaymentMethod() {

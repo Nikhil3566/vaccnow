@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "8f2e1377-aaf2-416d-8ada-2ba08517c72e",
+		"name": "Vaccine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vaccination - Schedule vaccination timeslot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n      \"vaccineName\":\"covid\",\r\n\t  \"branchName\":\"Cairo_Cleopatra_Branch\",\r\n\t  \"scheduledDateTime\":\"2021-01-25T15:30:00\",\r\n\t  \"requesterEmailId\":\"nikhilagrawal.it@gmail.com\",\r\n\t  \"paymentMethod\":\"cash\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/vaccination/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"vaccination",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Availability - Get a list of all branches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/availability/branches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"availability",
+						"branches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Availability - Get a list of all available vaccines per branch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/availability/vaccines",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"availability",
+						"vaccines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Availability - Get a specific availability by branch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/availability/branchName/Cairo_Cleopatra_Branch/vaccineName/polio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"availability",
+						"branchName",
+						"Cairo_Cleopatra_Branch",
+						"vaccineName",
+						"polio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Availability - Get available time for a branch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/availability/availableTimeSlots/branchName/Cairo_Cleopatra_Branch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"availability",
+						"availableTimeSlots",
+						"branchName",
+						"Cairo_Cleopatra_Branch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporting - Get a list of all applied vaccination per branch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n      \"vaccineName\":\"covid\",\r\n\t  \"branchName\":\"Cairo_Cleopatra_Branch\",\r\n\t  \"scheduledDateTime\":\"2021-01-25T15:30:00\",\r\n\t  \"requesterEmailId\":\"divyaagrawal1601@gmail.com\",\r\n\t  \"paymentMethod\":\"cash\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/reporting/appliedVaccinations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"reporting",
+						"appliedVaccinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporting - Get a list of all applied vaccination per day/period",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n      \"from\":\"2021-01-24T15:30:00\",\r\n\t  \"to\":\"2021-01-26T15:30:00\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vaccnow/reporting/appliedVaccinations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vaccnow",
+						"reporting",
+						"appliedVaccinations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

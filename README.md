@@ -1,2 +1,0 @@
-# vaccnow
-# vaccnow

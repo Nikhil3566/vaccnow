@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BranchRespository {
 
-	public static Map<String, Branch> branches;
+	protected static Map<String, Branch> branches;
 	static {
 		branches = new HashMap<>();
 		branches.put("Cairo_Cleopatra_Branch",
@@ -28,18 +28,18 @@ public class BranchRespository {
 	}
 
 	private static LinkedList<String> createVaccinesList() {
-		return new LinkedList<String>(Arrays.asList("covid", "polio"));
+		return new LinkedList<>(Arrays.asList("covid", "polio"));
 	}
 
 	private static LinkedList<LocalDateTime> createTimeSlots() {
 
-		return new LinkedList<LocalDateTime>(Arrays.asList(LocalDateTime.of(2021, Month.JANUARY, 25, 12, 00),
+		return new LinkedList<>(Arrays.asList(LocalDateTime.of(2021, Month.JANUARY, 25, 12, 00),
 				LocalDateTime.of(2021, Month.JANUARY, 25, 15, 30), LocalDateTime.of(2021, Month.JANUARY, 26, 14, 30),
 				LocalDateTime.of(2021, Month.JANUARY, 28, 8, 00), LocalDateTime.of(2021, Month.JANUARY, 31, 14, 00)));
 	}
 
 	public Map<String, Branch> getAllBranches() {
-		return this.branches;
+		return branches;
 	}
 
 }

@@ -12,9 +12,4 @@ public enum PaymentMethod {
 	public String getPaymentType() {
 		return paymentType;
 	}
-
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
-	}
-
 }
