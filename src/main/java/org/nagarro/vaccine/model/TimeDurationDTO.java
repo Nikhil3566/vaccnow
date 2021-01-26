@@ -17,16 +17,7 @@ public class TimeDurationDTO {
 		return from;
 	}
 
-	public void setFrom(LocalDateTime from) {
-		this.from = from;
-	}
-
 	public LocalDateTime getTo() {
 		return to;
 	}
-
-	public void setTo(LocalDateTime to) {
-		this.to = to;
-	}
-
 }

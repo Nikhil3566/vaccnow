@@ -23,32 +23,15 @@ public class Branch {
 		return branchName;
 	}
 
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
-	}
-
 	public List<String> getAvailableVaccines() {
 		return availableVaccines;
-	}
-
-	public void setAvailableVaccines(List<String> availableVaccines) {
-		this.availableVaccines = availableVaccines;
 	}
 
 	public List<LocalDateTime> getAvailableTimeSlots() {
 		return availableTimeSlots;
 	}
 
-	public void setAvailableTimeSlots(List<LocalDateTime> availableTimeSlots) {
-		this.availableTimeSlots = availableTimeSlots;
-	}
-
 	public List<Vaccine> getScheduledVaccines() {
 		return scheduledVaccines;
 	}
-
-	public void addScheduledVaccines(Vaccine vaccinationRequest) {
-		this.scheduledVaccines.add(vaccinationRequest);
-	}
-
 }

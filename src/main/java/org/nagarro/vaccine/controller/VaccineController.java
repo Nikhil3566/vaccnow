@@ -1,6 +1,5 @@
 package org.nagarro.vaccine.controller;
 
-import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +45,7 @@ public class VaccineController {
 	}
 
 	@PostMapping("/vaccination/schedule")
-	public ResponseEntity<URI> scheduleVaccinationTimeslot(@RequestBody Vaccine vaccinationRequest) {
+	public ResponseEntity<Vaccine> scheduleVaccinationTimeslot(@RequestBody Vaccine vaccinationRequest) {
 		service.scheduleVaccinationTimeslot(vaccinationRequest);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

@@ -24,16 +24,8 @@ public class Vaccine {
 		return vaccineName;
 	}
 
-	public void setVaccineName(String vaccineName) {
-		this.vaccineName = vaccineName;
-	}
-
 	public String getBranchName() {
 		return branchName;
-	}
-
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
 	}
 
 	public LocalDateTime getScheduledTime() {
@@ -48,16 +40,7 @@ public class Vaccine {
 		return requesterEmailId;
 	}
 
-	public void setRequesterEmailId(String requesterEmailId) {
-		this.requesterEmailId = requesterEmailId;
-	}
-
 	public String getPaymentMethod() {
 		return paymentMethod;
 	}
-
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
-
 }

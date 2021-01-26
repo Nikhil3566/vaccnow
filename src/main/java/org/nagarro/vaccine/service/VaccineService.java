@@ -56,12 +56,12 @@ public class VaccineService {
 	}
 
 	public Map<String, List<Vaccine>> getAppliedVaccinations() {
-		return branchRepository.getAllBranches().values().stream()
+		return branchRepository.getAllBranches().values().stream().filter(branch->!branch.getScheduledVaccines().isEmpty())
 				.collect(Collectors.toMap(Branch::getBranchName, Branch::getScheduledVaccines));
 	}
 
 	public Map<String, List<Vaccine>> getAppliedVaccinationsForATimePeriod(LocalDateTime from, LocalDateTime to) {
-		return branchRepository.getAllBranches().values().stream()
+		return branchRepository.getAllBranches().values().stream().filter(branch->!branch.getScheduledVaccines().isEmpty())
 				.filter(branch -> branch.getScheduledVaccines().stream()
 						.allMatch(s -> s.getScheduledTime().isAfter(from) && s.getScheduledTime().isBefore(to)))
 				.collect(Collectors.toMap(Branch::getBranchName, Branch::getScheduledVaccines));

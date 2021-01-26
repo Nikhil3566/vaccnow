@@ -1,13 +1,16 @@
 package org.nagarro.vaccine;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
-class VaccineApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = VaccineApplication.class)
+public class VaccineApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void main() {
+		VaccineApplication.main(new String[] {});
 	}
-
 }
