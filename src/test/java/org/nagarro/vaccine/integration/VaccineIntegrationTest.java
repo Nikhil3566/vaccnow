@@ -138,6 +138,18 @@ public class VaccineIntegrationTest {
 
 		assertEquals(HttpStatus.CREATED, response6.getStatusCode());
 
+		// Attempt to schedule a vaccine that is not available
+		Vaccine requestBodyInvalid = new Vaccine("hiv", "Alexandria_Governorate_Branch",
+				LocalDateTime.of(2021, Month.JANUARY, 31, 14, 00, 30), "nikhilagrawal.it@gmail.com", "cash");
+
+		HttpEntity<Vaccine> entityInvalid = new HttpEntity<>(requestBodyInvalid, headers);
+
+		ResponseEntity<Object> responseInvalid = restTemplate.exchange(createURLWithPort("/vaccnow/vaccination/schedule"),
+				HttpMethod.POST, entityInvalid, Object.class);
+
+		assertEquals(HttpStatus.BAD_REQUEST, responseInvalid.getStatusCode());
+		
+
 		// TEST 6 : Get a list of all applied vaccination per branch
 
 		HttpEntity<String> entity7 = new HttpEntity<String>(headers);

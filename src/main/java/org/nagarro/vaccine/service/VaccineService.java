@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.nagarro.vaccine.enums.VaccineAvailability;
+import org.nagarro.vaccine.exception.InvalidVaccineRequestException;
 import org.nagarro.vaccine.model.Branch;
 import org.nagarro.vaccine.model.Vaccine;
 import org.nagarro.vaccine.respository.BranchRespository;
@@ -52,16 +53,21 @@ public class VaccineService {
 
 			requestedBranch.getAvailableVaccines().remove(vaccinationRequest.getVaccineName());
 			requestedBranch.getAvailableTimeSlots().remove(vaccinationRequest.getScheduledTime());
+		} else {
+			throw new InvalidVaccineRequestException(vaccinationRequest.getBranchName(),
+					vaccinationRequest.getVaccineName(), vaccinationRequest.getScheduledTime());
 		}
 	}
 
 	public Map<String, List<Vaccine>> getAppliedVaccinations() {
-		return branchRepository.getAllBranches().values().stream().filter(branch->!branch.getScheduledVaccines().isEmpty())
+		return branchRepository.getAllBranches().values().stream()
+				.filter(branch -> !branch.getScheduledVaccines().isEmpty())
 				.collect(Collectors.toMap(Branch::getBranchName, Branch::getScheduledVaccines));
 	}
 
 	public Map<String, List<Vaccine>> getAppliedVaccinationsForATimePeriod(LocalDateTime from, LocalDateTime to) {
-		return branchRepository.getAllBranches().values().stream().filter(branch->!branch.getScheduledVaccines().isEmpty())
+		return branchRepository.getAllBranches().values().stream()
+				.filter(branch -> !branch.getScheduledVaccines().isEmpty())
 				.filter(branch -> branch.getScheduledVaccines().stream()
 						.allMatch(s -> s.getScheduledTime().isAfter(from) && s.getScheduledTime().isBefore(to)))
 				.collect(Collectors.toMap(Branch::getBranchName, Branch::getScheduledVaccines));
