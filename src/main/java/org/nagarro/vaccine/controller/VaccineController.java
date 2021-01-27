@@ -59,4 +59,9 @@ public class VaccineController {
 	public ResponseEntity<Map<String, List<Vaccine>>> getAppliedVaccinationsForATimePeriod(@RequestBody TimeDurationDTO timeDurationDTO) {
 		return ResponseEntity.ok(service.getAppliedVaccinationsForATimePeriod(timeDurationDTO.getFrom(),timeDurationDTO.getTo()));
 	}
+	
+	@PostMapping("/reporting/confimedVaccinations")
+	public ResponseEntity<Map<String, List<Vaccine>>> getConfirmedVaccinationsForATimePeriod(@RequestBody TimeDurationDTO timeDurationDTO) {
+		return ResponseEntity.ok(service.getAppliedVaccinationsForATimePeriod(timeDurationDTO.getFrom(),timeDurationDTO.getTo()));
+	}
 }

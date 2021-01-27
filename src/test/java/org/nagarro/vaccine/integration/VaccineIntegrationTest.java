@@ -183,6 +183,21 @@ public class VaccineIntegrationTest {
 		assertThat((responseMap8.get("Alexandria_Governorate_Branch"))
 				.contains(new Vaccine("polio", "Alexandria_Governorate_Branch",
 						LocalDateTime.of(2021, Month.JANUARY, 31, 14, 00, 30), "nikhilagrawal.it@gmail.com", "cash")));
+		
+		// TEST 8 : Show all confirmed vaccinations over a time period
+		
+		ResponseEntity<LinkedHashMap> response9 = restTemplate.exchange(
+				createURLWithPort("/vaccnow/reporting/confimedVaccinations"), HttpMethod.POST, entity8,
+				LinkedHashMap.class);
+
+		LinkedHashMap<String, List<Vaccine>> responseMap9 = (LinkedHashMap<String, List<Vaccine>>) response9.getBody();
+
+		assertEquals(HttpStatus.OK, response9.getStatusCode());
+		assertThat((responseMap9.get("Alexandria_Governorate_Branch"))
+				.contains(new Vaccine("polio", "Alexandria_Governorate_Branch",
+						LocalDateTime.of(2021, Month.JANUARY, 31, 14, 00, 30), "nikhilagrawal.it@gmail.com", "cash")));
+
+		
 	}
 
 	private String createURLWithPort(String uri) {
